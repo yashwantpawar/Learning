@@ -1,0 +1,37 @@
+Code Coverage:
+Lets say you have 1000 line of code out of which 900 lines are covered by unit tests then your code coverage is 90%.
+Typically 85 to 90 % is good amout of code coverage.
+Sonarqube is one of the tool which helps in measuring code coverage.
+
+Why is it important?
+Unit testing is one of the most important thing in modern development.
+Good unit tests are there forever, they catch defects in future.
+System with good unit test improve over a time. Developer do not worry about breaking functionality, they continuously refactor.
+
+Code coverage is one of the measure of having great unit test.
+
+code coverage is just a result of unit test. Having great unit tests would result in great coverage.
+
+How to measure unit tests?
+Using Sonar.
+
+References:
+https://www.youtube.com/watch?v=Ra42js3AXIQ
+
+-----------------------------------------------------------------------------------------------------
+
+What is sonarqube?
+Features:
+1. Open source
+2. Support languages
+3. It provide the reports for code quality issues like duplicate lines, how many unit test cases are there in your project and percentage
+of unit test cases failed and succeded.
+Code coverage, what % of code is covered by unit and integration test cases.
+It also gives you report about code complexity.
+4.It provides historical reports.
+5. It can be integrated with ant, maven, gradle
+6. Eclipse-sonarlint plugin
+
+Reference:
+https://www.youtube.com/watch?v=NMG_IVI0lNw
+-------------------------------------------------------------------------------------------------------

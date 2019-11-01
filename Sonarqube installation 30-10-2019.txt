@@ -1,0 +1,41 @@
+***********Sonarqube Installation and Integration with Jenkins - 2019 | Part-1*****************
+
+--------------------------------------------------------------------------------
+**********Java installation and configuration on EC2 instance***********
+sudo yum install java-1.8.0-openjdk-devel
+/usr/lib/jvm/java-1.8.0-openjdk
+sudo /usr/sbin/alternatives --config java
+sudo /usr/sbin/alternatives --config javac
+
+**********Sonarqube installation and configuration****************
+command to find linux version
+cat /etc/os-release
+
+wget https://binaries.sonarsource.com/Distribution/sonarqube/sonarqube-8.0.zip
+unzip sonarqube-8.0.zip
+start sonar.sh
+We can store code analysis report in sonarqube
+Sonarqube is open source static code analysis tool with which we can identify code bugs, vulnerabilities and code quality in the code base.
+We can configure sonar instance locally or on cloud.
+
+To integrate sonarqube with jenkins install sonarqube plugin
+Configure sonarqube server inside jenkins server in config system.
+
+
+References:
+https://www.sonarqube.org/
+https://sonarcloud.io/explore/projects
+https://www.osboxes.org/virtualbox-images/
+
+-----------------------------------------------------------------------------------------------------
+Jenkins How to Write Jenkinsfile Pipeline As Code Part 1
+
+
+
+
+
+
+References:
+https://www.youtube.com/watch?v=_o42ZCkCJb4
+https://jenkins.io/doc/book/pipeline/
+

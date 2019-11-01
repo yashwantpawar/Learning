@@ -1,0 +1,101 @@
+What is Nexus | How to setup and configure Nexus | Nexus Repository Manager
+Open the port in security group
+
+Reference: 
+https://www.youtube.com/watch?v=83AGz9huJGo&t=238s
+https://github.com/ValaxyTech/DevOpsDemos/blob/master/Nexus/Nexus_Installation.MD
+
+---------------------------------------------------------------------------------
+Jenkins Integration with Nexus.
+How to upload artifacts to repository server?
+one way Maven integrated with Sonatype Nexus.
+You can create artifacts inside jenkins and upload them onto Nexus.
+Creating release and snapshot repositories
+Mvn goals inside jenkins clean compile package deploy
+update github repo with nexus repo url
+modify settings.xml file to allow access to nexus repositories
+
+
+Reference:
+https://github.com/10JP1A0505/https-github.com-carreerit-mavenrepo
+https://www.youtube.com/watch?v=qbO4MTESiJQ&t=159s
+--------------------------------------------------------------------------------
+**********Java installation and configuration on EC2 instance***********
+sudo yum install java-1.8.0-openjdk-devel
+/usr/lib/jvm/java-1.8.0-openjdk
+sudo /usr/sbin/alternatives --config java
+sudo /usr/sbin/alternatives --config javac
+
+Installing & Configure Maven on AWS EC2 instance | Maven setup & configuration on Jenkins
+Git to pull the repo and maven to compile the code.
+***********Install Git on Jenkins server************
+yum install git -y
+Setup Git on jenkins console
+Install git plugin without restart
+Manage Jenkins > Jenkins Plugins > available > github
+***********Configure git path***************
+
+Manage Jenkins > Global Tool Configuration > git
+
+**********Download Maven on Jenkin server***********
+cd /opt/maven
+wget http://us.mirrors.quenda.co/apache/maven/maven-3/3.6.2/binaries/apache-maven-3.6.2-bin.tar.gz
+tar xvzf apache-maven-3.6.2-bin.tar.gz
+/opt/maven/apache-maven-3.6.2
+********update .bash_profile*********
+cd /root
+vi .bash_profile
+M2_HOME=/opt/maven/apache-maven-3.6.2
+JAVA_HOME=/usr/lib/jvm/java-1.8.0-openjdk
+M2=$M2_HOME/bin
+PATH=$PATH:$JAVA_HOME:$M2_HOME:$M2:$HOME/bin
+Install Maven invoker and github plugins
+
+Reference:
+https://www.youtube.com/watch?v=wgfsVmHnAiM
+https://github.com/ValaxyTech/DevOpsDemos/blob/master/Jenkins/Git_plugin_install.MD
+https://maven.apache.org/download.cgi
+--------------------------------------------------------------------------------
+
+****************************how to install jenkins on ec2 instance*********************************
+yum -y install java-1.8.0-openjdk
+update-alternatives --config java
+vim .bash_profile
+echo $JAVA_HOME
+
+sudo wget -O /etc/yum.repos.d/jenkins.repo http://pkg.jenkins-ci.org/redhat/jenkins.repo
+sudo rpm --import http://pkg.jenkins-ci.org/redhat/jenkins-ci.org.key
+sudo yum install jenkins
+sudo service jenkins start
+Access Jenkins server using the public DNS of your ec2 on port 8080
+   http://{ec2-public-dns}:8080
+
+Useful tips
+
+To start jenkins on a diff port
+Update port number in /etc/sysconfig/jenkins
+
+
+To fetch initial admin password
+ sudo su -
+ cd /var/lib/jenkins/secrets/
+ cat initialAdminPassword
+0bcbbcab7f984af7b4171b55e9201d04
+To stop Jenkins
+ sudo service jenkins stop
+
+To uninstall Jenkins
+ sudo service jenkins stop
+ sudo yum remove jenkins
+ sudo rm -r /var/lib/jenkins
+
+Configure java path
+Manage Jenkins > Global Tool Configuration > JDK
+
+References:
+https://www.youtube.com/watch?v=M32O4Yv0ANc
+https://www.youtube.com/watch?v=jmm8DsosBqw
+
+https://github.com/ValaxyTech/DevOpsDemos/blob/master/Jenkins/Installation.MD
+https://stackoverflow.com/questions/10268583/downloading-java-jdk-on-linux-via-wget-is-shown-license-page-instead
+--------------------------------------------------------------------------------
