@@ -1,0 +1,11 @@
+sudo yum install java-11-openjdk-devel
+	Install OpenJDK 11 on CentOS 7 / Fedora 29 / Fedora 28
+curl -O https://download.java.net/java/GA/jdk11/9/GPL/openjdk-11.0.2_linux-x64_bin.tar.gz
+tar zxvf openjdk-11.0.2_linux-x64_bin.tar.gz
+	Move the resulting folder to /usr/local/ 
+sudo mv jdk-11.0.2/ /usr/local/
+	Set environment variables 
+sudo vim /etc/profile.d/jdk11.sh
+	Add: 
+export JAVA_HOME=/usr/local/jdk-11.0.2
+export PATH=$PATH:$JAVA_HOME/bin

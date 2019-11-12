@@ -1,0 +1,51 @@
+//Different types of security testing
+SAST,DAST,IAST,RASP
+SAST: Static Application security testing/White box testing
+It allows developers to find security vulnerabilities in the application source code earlier in SDLC.
+SAST is not going to find runtime error.
+example it is well in finding error in a line of code such as weak random number generation.
+Application is tested from inside out. This type of testing represents Developers approach.
+Finds vulnerability at start of SDLC.
+Less expensive to fix vulnerabilities. 
+
+DAST: Dynamic application security testing/Black box testing
+It find security vulnerabilities in running application typically webapps.
+How?
+It does that by fault injection technique on app, such as feeding malicious data to identify common security vulnerabilities such as
+SQL injuction and cross site scripting.
+It spotlight runtime problems like authentication and server configuration issues as well as flaws visible only when know user logs in.
+DAST isnot going to find coding error at least down to line number.
+Tester has no knowledge of technologies and framework application is build on. Application is tested from outside in. This type of testing 
+represents hackers approach
+Finds vulnerability towards end of SDLC.
+More expensive to fix vulnerabilities.
+
+Interactive Application security testing (IAST):
+SAST has difficult time dealing with libraries and framework found in modern apps because it does not understand framework.
+It overcomes shortcomings of SAST and DAST. It places its agent in application and performs all its analysis in the app in realtime 
+anywhere in development process.
+Access to all information(data flows, code http request/ responses) allow it to cover more code and produce more accurate results.
+
+Run time Application security protection(RASP): Like IAST it works in application but it is less testing and more security tool.
+RASP lets application run continuous security checks on itself and respond to live attacks by terminating an attackers session and
+alerting defenders to attack.
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+

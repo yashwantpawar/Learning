@@ -1,11 +1,7 @@
 ***********Sonarqube Installation and Integration with Jenkins - 2019 | Part-1*****************
 
 --------------------------------------------------------------------------------
-**********Java installation and configuration on EC2 instance***********
-sudo yum install java-1.8.0-openjdk-devel
-/usr/lib/jvm/java-1.8.0-openjdk
-sudo /usr/sbin/alternatives --config java
-sudo /usr/sbin/alternatives --config javac
+
 
 **********Sonarqube installation and configuration****************
 command to find linux version
@@ -20,22 +16,109 @@ We can configure sonar instance locally or on cloud.
 
 To integrate sonarqube with jenkins install sonarqube plugin
 Configure sonarqube server inside jenkins server in config system.
+--------------------------------------------------------------------
+                   Sonarqube 7.6 Installation
+1.Prerequisite
+The only prerequisite for running SonarQube is to have Java (Oracle JRE 8 or OpenJDK 8) installed on your machine.
+2.Hardware Requirements
+A small-scale (individual or small team) instance of the SonarQube server requires at least 2GB of RAM to run efficiently 
+and 1GB of free RAM for the OS. 
+
+1.Java installation and configuration on EC2 instance
+sudo yum install java-1.8.0-openjdk-devel
+
+/usr/lib/jvm/java-1.8.0-openjdk
+sudo /usr/sbin/alternatives --config java
+sudo /usr/sbin/alternatives --config javac
+
+2.Hardware requirement
+Use t2 medium ec2 instance
+
+check free memory useing command
+free -h
+
+// Sonarqube 7.6 installation steps //
+cd /opt
+yum install wget unzip -y
+wget https://binaries.sonarsource.com/Distribution/sonarqube/sonarqube-7.6.zip
+unzip sonarqube-7.6.zip
+#You should not start sonarqube as root user
+#So create user sonar
+useradd sonar
+#Give sudo access to sonar user
+visudo
+sonar ALL=(ALL)   NOPASSWD:ALL
+#check the owner and group name of soanrqube folder
+ls -l
+#Change the owner and group permission to sonarqube diresctory
+chown -R sonar:sonar /opt/sonarqube-7.6/
+chmod -R 775 /opt/sonarqube-7.6/
+#change the user
+su -sonar
+# if not able to start sonarqube see sonar.log file under logs
+/opt/sonarqube-7.6/linux-x86-64
+#start the sonarqube server
+./sonar.sh start
+./sonar.sh status
+#To access sonarqube server from browser
+http://IP:9000
+Enable the port 9000 in SG, click source as anywhere
+
+#How to set security to sonar web page/ It has to ask for username and pwd
+login using user admin pwd admin
+Go to administration>Configuration>security>enable force user authentication
+Change admin pwd
+
+//Integrate SonarQube with Jenkins for Simple Java Project | SonarQube code analysis for Jenkins//
+
+Prerequisites
+SonarQube Server Get Help here
+Jenkins Server Get Help here
+
+Implementation
+Login to Jenkins server and install sonarqube scanner.
+# wget https://binaries.sonarsource.com/Distribution/sonar-scanner-cli/sonar-scanner-cli-4.2.0.1873-linux.zip
+# unzip sonar-scanner-cli-4.2.0.1873-linux.zip
+# mv /opt/sonar-scanner-4.2.0.1873-linux/ /opt/sonar-scanner
+
+Set SonarQube server details in sonar-scanner property file
+Sonar properties file: /opt/sonar_scanner/conf/sonar-scanner.properties 
+sonar.host.url=http://<SONAR_SERVER_IP>:9000
+
+Login to Jenkins GUI console and install " SonarQube scanner" plugin
+Manage Jenkins > Manage Plugins > Avalable > SonarQube scanner
+Configure SonarQube scanner home path
+Manage Jenkins > Global Tool Configuration > SonarQube Scanner 
+Name : sonar_scanner
+SONAR_RUNNER_HOME : /opt/sonar_scanner
+Configure SonarQube server name and authentication token
+Manage Jenkins > Configure Systems > SonarQube Servers 
+Name : SonarQube
+ServerURL : http://<Sonarqube_server>:9000/sonar
+Server authentication token To Get Authentication code follow below steps. Login to SonarQube server as a admin My Account > Security > Generate Token
+Create a job to test SonarQube. Provide below sonar properties details in the job under build
+Build: 
+Execute SonarQube Scanner > Analysis properties (it is mandatary). 
+sonar.projectKey=Valaxy
+sonar.projectName=ValaxyDemo
+sonar.projectVersion=1.0
+sonar.sources=/var/lib/jenkins/workspace/$JOB_NAME/<PROJECT_NAME>/src
+Execute job to get analysis report.
+//11 - DevOps Jenkins SonarQube Integration | Jenkins Pipeline Tutorial | Publish code to SonarQube//
+
+ Install sonarscanner plugin
+# Config sonar server in config system
+#Generate a token in sonarqube under User > My Account > Security.
+This token acts like username, pwd. using this token jenkins connects to sonarqube and publish the source code.We have to keep this token safe.
+
 
 
 References:
 https://www.sonarqube.org/
+https://docs.sonarqube.org/latest/requirements/requirements/
+https://computingforgeeks.com/how-to-install-java-11-on-centos-7-fedora-29-fedora-28/
 https://sonarcloud.io/explore/projects
 https://www.osboxes.org/virtualbox-images/
-
------------------------------------------------------------------------------------------------------
-Jenkins How to Write Jenkinsfile Pipeline As Code Part 1
-
-
-
-
-
-
-References:
-https://www.youtube.com/watch?v=_o42ZCkCJb4
-https://jenkins.io/doc/book/pipeline/
+https://github.com/ValaxyTech/DevOpsDemos/blob/master/SonarQube/Sonar_Integration_with_Jenkins.MD
+https://www.youtube.com/watch?v=tuIZok81iLk&t=334s
 

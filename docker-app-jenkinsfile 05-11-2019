@@ -1,0 +1,25 @@
+node{
+  stage('SCM Checkout'){
+    git credentialsId: 'git-cred', url: 'https://github.com/yashwantpawar/my-app.git'
+  }
+  stage('compile-package'){
+    def mvnhome = tool name: 'maven', type: 'maven'
+    def mvncmd = "${mvnhome}/bin/mvn"
+    sh label: '', script: "${mvncmd} clean compile package"
+  }
+  stage('Build docker image'){
+    sh 'docker build -t yashwantpawar/my-app:2.0.0 .'
+  }
+  stage('Push docker image'){
+    withCredentials([string(credentialsId: 'dockerpwd', variable: 'dockerHubPwd')]) {
+      sh "docker login -u yashwantpawar -p ${dockerHubPwd}"
+    }
+    sh 'docker push yashwantpawar/my-app:2.0.0'
+  }
+  stage('Run container on dev server'){
+    def dockerRun = 'docker run -p 8080:8080 -d -name my-app yashwantpawar/my-app:2.0.0'
+    sshagent(['Dev-server']) {
+      sh "ssh -o StrictHostKeyChecking=no ec2-user@52.66.8.134 ${dockerRun}"
+    }
+  }
+}

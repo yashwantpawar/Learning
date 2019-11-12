@@ -1,0 +1,124 @@
+DevOps Engineer roles and responsibilities:
+
+My Name is Yashwant. I have 4 years of experience in IT industry. and around 3 years in DevOps and AWS (cloud).
+I worked with Capgemini as DevOps Engineer.
+
+As a part of my role I am responsible to setup and manage DevOps CICD pipelines.
+
+I have used various DevOps tools like Git(for version control), Jenkins (CI), Maven(build tool), Sonarqube for code analysis, Nexus for 
+artifactory repositories, Ansible for continuos deployment and configuration management, 
+Docker for containerization and Kubernetes for container orchestration.
+
+If you know AWS add skills to job  role.
+
+This DevOps env is running on cloud which was setup by me according to our DevOps architect plan.
+
+More detailed
+
+//Git
+Git as version control system
+Enabling branching stratiges like dev, QA, pre prod prod branches we create.
+Working with git repo using git commands push, pull, merge, clone, rebase.
+Manageing git user access like repository or branch access to secure code.
+
+//Jenkins
+To create CICD jobs
+Master slave configuration
+Manageing CICD jobs
+Managing/adding jenkins plugin
+Integrating other DevOps tools like git maven ansible sonarqube nexus etc.
+
+//Ansible
+Setting up ansible controller server or master
+Writting playbooks and roles
+Manageing Ansible hosts
+
+//Docker
+Setup docker environment
+Writing docker files
+Creating custom images
+Setting up private docker registry
+Creating and manageing containers
+
+//Kubernetes
+Setup Kubernetes environment on AWS or on-premises
+Writting deployment files and service files
+Managing containers on pods
+Managing Kubernetes nodes
+
+References:
+https://www.youtube.com/watch?v=7LIXqe_0w10&t=181s
+
+
+-------------------------------------------------------------------------------
+
+Role of DevOps Engineer
+
+Who is DevOps Engineer?
+DevOps Engineer works with various tools for continuous integration and continous deployment
+Why do we need Devops Engineer?
+With DevOps They deploy code 30times faster and more frequently 
+50% fewer deployment failes after they begin using devops
+
+What kind of skills DevOps Engineer need?
+Broad understaing of tools and technologies 
+soft skills
+software and infrastructure security
+Infrastructure automation tools 
+testing
+Customer first mindset
+Collabration
+Flexibility
+Network awerness
+Big picture
+
+For DevOps Engineer to be successful you must have
+strong communication, soft skills
+
+Developers
+QA
+Customer success
+project management
+Business leader are the clients for DevOps engineer
+
+End objective is to successfully deliver working application to end user.
+
+References:
+https://www.youtube.com/watch?v=7LIXqe_0w10&t=181s
+---------------------------------------------------------------------------
+DevOps Real time Best practices Roles and Responsibilities
+
+Major Release 3-6 Month
+Minor release 2weeks-3 months
+Hotfix release 1day-2weeks
+
+//VCS
+-Create a branch/tag for new release 2.0.0
+-Request to create user accounts
+-reset passwords
+-Administration of VCS (SVN/Git)
+	repository backups
+	rollbacks
+-hooks
+-upgrade git/svn
+How do you get requests
+1. Email to your group
+2. Ticketing system( Jira/remedy ) # we can avoid doing same task by many people by assigning ticket to someone.
+
+//Continuous Integration
+-create CI job for new release(Nightly/hourly)
+-Create manual job in Ci tool
+-Accounts for developers
+-Administration
+	backup of jenkins
+	plugin installation
+	thirdparty tools integration like selenium
+-Monitor CI jobs
+
+//QA Release Builds
+QA builds- create and deploy builds in QA env
+performance builds
+UAT builds
+
+
+

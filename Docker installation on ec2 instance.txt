@@ -1,0 +1,31 @@
+//Docker installation on ec2 instance//
+Update the packages on your instance
+[ec2-user ~]$ sudo yum update -y
+Install Docker 
+[ec2-user ~]$ sudo yum install docker -y
+Start the Docker Service
+[ec2-user ~]$ sudo service docker start
+Add the ec2-user to the docker group so you can execute Docker commands without using sudo.
+[ec2-user ~]$ sudo usermod -a -G docker ec2-user
+You should then be able to run all of the docker commands without requiring sudo. 
+After running the 4th command I did need to logout and log back in for the change to take effect.
+---------------------------------------------------------------------------------
+
+//CI CD Of Docker Containers | DevOps | Jenkins Pipeline Tutorial | Docker CI/CD | DevOps CI/CD//
+
+Build error:
+Got permission denied while trying to connect to the Docker daemon socket at unix:///var/run/docker.sock: 
+Post http://%2Fvar%2Frun%2Fdocker.sock/v1.38/build?buildargs=%7B%7D&cachefrom=%5B%5D&cgroupparent=&cpuperiod=0&cpuquota=0&cpusetcpus=&cpusetmems=&cpushares=0&dockerfile=Dockerfile&labels=%7B%7D&memory=0&memswap=0&networkmode=default&rm=1&session=tofbnk9c5kxd8vvu19zbcjd1j&shmsize=0&t=yashwantpawar%2Fmy-app%3A2.0.0&target=&ulimits=null&version=1: dial unix /var/run/docker.sock: connect: permission denied
+Solution:
+The user jenkins needs to be added to the group docker:
+sudo usermod -a -G docker jenkins
+Then restart Jenkins.
+
+
+Using ssh agent plugin we can run the commands on remote machines.
+
+References:
+https://docs.aws.amazon.com/AmazonECS/latest/developerguide/docker-basics.html
+https://serverfault.com/questions/836198/how-to-install-docker-on-aws-ec2-instance-with-ami-ce-ee-update
+https://stackoverflow.com/questions/47854463/got-permission-denied-while-trying-to-connect-to-the-docker-daemon-socket-at-uni
+

@@ -1,0 +1,16 @@
+08 - Jenkins pipeline integration with git & maven | Jenkins Pipeline Tutorial
+writing stages
+SCM checkout
+compile and package
+
+Creating Pipeline job
+
+
+References:
+https://github.com/javahometech/my-app
+----------------------------------------------------------------------------------
+
+09 Jenkins pipeline Integration with email | Jenkins Pipeline Tutorial | Jenkins Pipeline email
+
+Using SMTP server details we can send mail as part of jenkins job
+here I am using google/gmail smtp server details
