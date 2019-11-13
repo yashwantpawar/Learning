@@ -1,0 +1,59 @@
+Container Security:
+
+Security Risks and challenges of using containers
+
+Docker: It does not solve any application security problems
+	But it can create system and network attack surfaces
+Threats to My Container?
+Model 1:
+1st Vector: Application escape
+2nd : Host
+Model 2:
+1st Vector: Application escape
+2nd : Network
+	Host
+	Container
+	NFS,LDAP
+Model5:
+1st Vector: Application escape
+2nd : Network
+	Orchestration
+OWASP Docker Top 10:
+1. Insecure user mapping:
+	Running code as previledged user
+2. Patch Management:
+	Hosts
+	Container orchestration
+	Images
+3. Network Seperation/Firewalling:
+Basic DMZ technique
+	Internal
+	External
+Deny all
+allow only what is needed
+
+4.Security Contexts:
+Do not mix front/backend services-Running backend and frontend from the same container
+- No mix prod/ Dev
+6. Resource protection:
+Resource limit
+7.Image integrity and origin
+-Basic trust issue: Running arbitrary code from somewhere
+-Docker content trust
+8. Follow immutable paradigm:
+-least privilege
+-limits: Containers really need to write upload of files,R/W hosts mount
+10. Logging:
+Tear down container: log lost
+-remote logging container, orchestration, hosts
+
+How container technolgy can be secured/Scanning docker containers to manage security risks?
+-Scanning docker container to get visibility on open source security vulnerability
+BlackDuckHubscanner:
+docker pull blackducksoftware/hub_scanner
+
+
+Example of integrating with jenkins:
+Hub detect Jenkins plugin
+
+

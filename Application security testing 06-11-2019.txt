@@ -29,7 +29,7 @@ Access to all information(data flows, code http request/ responses) allow it to 
 Run time Application security protection(RASP): Like IAST it works in application but it is less testing and more security tool.
 RASP lets application run continuous security checks on itself and respond to live attacks by terminating an attackers session and
 alerting defenders to attack.
-
+------------------------------------------------------------------------------------------------------------------------------------
 
 
 

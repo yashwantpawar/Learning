@@ -1,0 +1,36 @@
+OWASP Top 10Application Security Risks-2017
+Component security: A9:2017 using components with known vulnerability
+
+Using tools that help with component security:
+SAST Tools: Checkmarx, IBM appscan, Sonarqube,Veracode
+DAST/IAST Tools: Micro Focus Fortify webinspect, IBM ASoC
+Software composition analysis: OWASP Dependency check, Sonatype Nexus, Black Duck (by Synopsys)
+Standard and compliance Mapping: OWASP Top 10 Project, PCI DSS
+Bundled Tools: Retire.JS, OWASP Dependency check
+
+Is the Application vulnerable?
+You are likely vulnerable
+	1. If you do not know versions of all the component you use 9both client,server side)
+	2. If software is out of date, unsupported, vulnerable. This includes OS, web/application server, DBMS,APIs, All components, 
+run time environment, libraries
+	3.If you do not scan for vulnerability regularly and subscribe to security bullitins for components you use
+	4. If you do not secure component configurations
+	5. If software developer do not test the compatibily of updated or patched libraries
+	6. If you do not upgrade framworks, underlying platforms and dependencies in timely manner
+How to Prevent?
+There should be patch management process in place to:
+	1.remove unused dependencies, unnecessary features, components, files and documentation
+	2. Continuously inventory the versions of both client and server side Components eg. frameworks, libraries and their dependencies 
+using tools like Versions, DependencyCheck,retire.js. Continuously monitor sources like CVE, NVD for vulnerability in the component.
+Subscribe to security alerts for vulnerability for components you use.
+	3 Only obtain componets from official sources over secure links 
+	4. Monitor for libraries and components that are unmaintained or do not create security patches for older versions.
+If patching is not possible consider deploying virtual patch to monitor, detect and protect againsts the discovered issue.
+
+Example of how component security can be Integrated with Jenkins:
+Hub detect Jenkins plugin
+
+----------------------------------------------------------------------------------------------------------------------------
+
+
+
