@@ -1,0 +1,38 @@
+Ansible Roles Ansible Galaxy
+
+Ansible roles will be stored in /etc/ansible/roles
+
+#To search role
+ansible-galaxy search apache
+
+ERROR! Failed to get data from the API server (https://galaxy.ansible.com/api/):
+ Failed to validate the SSL certificate for galaxy.ansible.com:443. Make sure your managed systems have a valid CA certificate installed.
+ If the website serving the url uses SNI you need python >= 2.7.9 on your managed machine  (the python executable used (/usr/bin/python2.6)
+ is version: 2.6.9 (unknown, Nov  2 2017, 19:21:21) [GCC 4.8.5 20150623 (Red Hat 4.8.5-11)])
+ or you can install the `urllib3`, `pyOpenSSL`, `ndg-httpsclient`, and `pyasn1` python modules 
+to perform SNI verification in python >= 2.6. You can use validate_certs=False if you do not need to confirm the servers identity 
+but this is unsafe and not recommended. Paths checked for this platform: /etc/ssl/certs, /etc/pki/ca-trust/extracted/pem,
+ /etc/pki/tls/certs, /usr/share/ca-certificates/cacert.org, /etc/ansible. 
+The exception msg was: [Errno 1] _ssl.c:493: error:14077410:SSL routines:SSL23_GET_SERVER_HELLO:sslv3 alert handshake failure.
+
+sudo yum erase ansible
+sudo pip install --upgrade pip
+sudo yum list | grep python3
+sudo yum install python34 python34-pip
+sudo update-alternatives --config python
+
+# Uninstall ansible
+sudo pip uninstall ansible
+# make sure python3 is installed
+python3 -V 
+# re-install ansible using pip3
+sudo pip3 install ansible
+
+#Download get-pip to current directory. It won't install anything, as of now
+curl -O https://bootstrap.pypa.io/get-pip.py
+
+#Use python3.6 to install pip
+python3 get-pip.py
+#this will install pip3 and pip3.6   
+
+

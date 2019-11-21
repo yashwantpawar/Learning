@@ -1,0 +1,24 @@
+//Docker installation on ec2 instance 19-11-2019
+
+sudo yum update -y
+sudo yum install docker -y
+#To check version:
+docker -v
+# If you want to avoid typing sudo whenever you run docker command add your user to docker group
+sudo usermod -aG docker ${USER}
+
+docker info
+docker inspect container name
+
+//Maven installation on ec2 instance
+mkdir /opt/maven
+wget http://mirrors.estointernet.in/apache/maven/maven-3/3.6.2/binaries/apache-maven-3.6.2-bin.tar.gz
+tar -xvzf apache-maven-3.6.2-bin.tar.gz
+vi .bash_profile
+JAVA_HOME=/usr/lib/jvm/java-1.8.0-openjdk
+M2_HOME=/home/ec2-user/maven/apache-maven-3.6.2/bin
+PATH=$PATH:$HOME/.local/bin:$JAVA_HOME:$M2_HOME:$HOME/bin
+logout and login to take effect
+#to check maven version
+mvn_version 
+

@@ -1,0 +1,26 @@
+//Learning Plan
+
+#Ansible
+Ansible is used for managing IT infrastructure and deploy software apps to remote nodes.
+For example, Ansible allows you to deploy as an application to many nodes with one single command.
+Use Case: To copy files from controller to target systems, used copy module
+Use Case:
+Imagine you have a number of hosts in your environment that you would like to restart in a particular order.
+Some of them are web servers and others are database servers. So you would like to power down the Web servers first followed by the database servers then power up
+the database servers and then the Web servers.
+Ex run cmd 1 on server 1, cmd 2 on server 2, restart server 1, restart server 2
+Use Case:
+With ansible, you could provision hundreds of VMs on public clouds like Amazon and provision private cloud in private cloud set
+up like VM Ware based infrastructure and move onto configuring applications on those systems and set up communications between them.
+There are a lot of built in modules available in Ansible that supports these kind of operations.
+Use Case: Playbook to add entry in a file, use lineinfile module of file category
+------------------------
+15-11-2019
+1.written playbook yaml file to install Apache Web server to latest version against multiple hosts
+References:
+https://www.middlewareinventory.com/blog/ansible-playbook-introduction-and-examples/
+2.Create the file on the target machines or servers as mentioned in the inventory file and the webserver's group
+In the above example, we have used the file module to create the file.
+References:
+https://www.softwaretestinghelp.com/ansible-playbooks-ansible-vaults/
+3.Copy content to a file using the copy module.

@@ -1,0 +1,19 @@
+
+
+Development lifecycle:
+Development Flow
+SCM-->sonarqube-->Build-->UT-->Package-->Dep2Nexus
+
+
+
+
+
+References:
+https://www.devopsschool.com/tutorial/docker/docker-install-and-configuration.html
+https://www.youtube.com/watch?v=-VaVmb_UOC8&t=1s
+
+
+
+
+We can protect branches from force pushing.
+Google gerrit to locking out branches.

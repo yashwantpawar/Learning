@@ -1,0 +1,22 @@
+DevOps Jenkins SonarQube Integration
+
+plugin sonarqube scanner
+#Install sonar scanner in jenkins
+cd /opt
+wget https://binaries.sonarsource.com/Distribution/sonar-scanner-cli/sonar-scanner-cli-4.2.0.1873-linux.zip
+unzip
+#config sonar scanner under global tool config
+#config sonar server under config system
+use secret text option for token
+Build errors:
+[ERROR] SonarQube server [https://13.232.252.33:9000] can not be reached
+SonarQube: Fail to get bootstrap index from server: Expected URL scheme 'http' or 'https' but no colon was found -> [Help 1]
+WorkflowScript: 27: expecting '}', found '' @ line 27, column 2.
+WARN: Unable to locate 'report-task.txt' in the workspace. Did the SonarScanner succeeded?
+
+Jenkins Pipeline
+stage SCM
+stage sonarqube analysis
+
+References:
+https://github.com/javahometech/my-app/blob/master/sonarqube-analysis

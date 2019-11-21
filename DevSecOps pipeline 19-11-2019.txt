@@ -1,0 +1,16 @@
+DevSecOps pipeline 19-11-2019
+
+Plugins used: Maven integration, blue ocean, deploy to container, SSH agent
+
+Sonarqube installation steps
+docker run -d -p 9000:9000 sonarqube
+docker run -d --name sonarqube -p 9000:9000 sonarqube
+docker start sonarqube
+docker exec -it sonarqube /bin/bash
+#docker run -it --name sonarqube sonarqube /bin/bash
+Sonarqube setup
+plugin: sonarqube scanner
+
+Reference:
+https://github.com/cehkunal/webapp
+You tube channel: Hack With Me

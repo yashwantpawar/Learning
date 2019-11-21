@@ -1,0 +1,18 @@
+Installing git and maven
+step 1
+http://mirrors.estointernet.in/apache/maven/maven-3/3.6.2/binaries/apache-maven-3.6.2-bin.tar.gz
+tar -xvzf apache
+step 2 
+JAVA_HOME=/usr/lib/jvm/java-1.8.0-openjdk
+M2_HOME=/opt/apache-maven-3.6.2/bin
+PATH=$PATH:$JAVA_HOME:$M2_HOME:$HOME/bin
+
+Step 3
+mvn -version
+
+
+
+
+
+References:
+https://www.youtube.com/watch?v=DDKcWIFp0KU&list=PLH1ul2iNXl7txKuhhDMKenYOThDww6x8S&index=6

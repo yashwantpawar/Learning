@@ -1,0 +1,36 @@
+ANSIBLE INSTALLATION IN 2 MIN IN EC2 INSTANCE
+
+Control Node Requirements
+Currently Ansible can be run from any machine with Python 2 (version 2.7) or Python 3 (versions 3.5 and higher) installed. 
+Windows is not supported for the control node.
+Step 1:yum update
+ step 2:yum install wget
+ step 3:wget https://dl.fedoraproject.org/pub/epel/epel-release-latest-7.noarch.rpm
+ step 4:rpm -ivh epel-release-latest-7.noarch.rpm
+ step 5:yum install ansible
+ step 6:ansible --version
+ step 7:cd /etc/ansible
+
+-----------------------------------------------------------------------
+Prerequistie
+Python
+SSH
+On AWS EC2 Linux Free Tier Instance, python and ssh both are already installed
+Python Version — 2.7.13
+Ansible Control Server
+Install Ansible on Redhat
+wget http://dl.fedoraproject.org/pub/epel/epel-release-latest-7.noarch.rpm
+rpm -ivh epel-release-latest-7.noarch.rpm
+yum repolist
+yum — enablerepo=epel install ansible
+Install Ansible on AWSLinux
+vim /etc/yum.repos.d/epel.repo
+or
+sudo yum-config-manager --enable epel
+yum repolist ( you should see epel)
+yum install ansible
+
+
+References:
+https://medium.com/@khandelwal12nidhi/ansible-setup-on-aws-ec2-instance-d83fac41fcc8
+https://docs.ansible.com/ansible/latest/installation_guide/intro_installation.html#latest-release-via-yum

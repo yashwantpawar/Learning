@@ -1,0 +1,13 @@
+Github Webhook | Integrating Jenkins With Github
+================================================
+
+Requirement:
+Whenever commits are pushed to git repo jenkins job should be autotriggered.
+#Build trigger:
+GitHub hook trigger for GITScm polling
+#Github-webhook
+Repo--Setting--webhook--add webhook--payload url
+http://localhost:8080/github-webhook/
+content type:
+Application/json
+Add webhook
