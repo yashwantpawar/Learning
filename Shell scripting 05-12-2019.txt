@@ -1,0 +1,8 @@
+Shell scripting
+
+#log file location in linux
+/var/log/httpd
+
+#where the logs of services stored in linux?
+
+https://www.eurovps.com/blog/important-linux-log-files-you-must-be-monitoring/

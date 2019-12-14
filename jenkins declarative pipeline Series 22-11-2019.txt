@@ -1,0 +1,31 @@
+jenkins declarative pipeline Series || Java Home Cloud
+======================================================
+#Usage of declarative pipeline has increased more and more
+What is difference between Declarative and scripted pipeline?
+
+Build error:
+WorkflowScript: 3: No stages specified @ line 3, column 5.
+       stages {
+
+Git Checkout stage
+===================
+how to use pipeline synatx?
+choose step as git--provide repo url
+https://github.com/yashwantpawar/myweb
+
+Maven Build stage
+==================
+
+Deploy to Tomcat Dev
+====================
+For tomcat to run java is needed
+install tomcat
+#change ownership
+sudo chown -R ec2-user:ec2-user tomcat8/
+start tomcat
+
+#to copy files from jenkins to tomcat we have plugin called sshagent
+to use script in multiple line use """
+#log location
+/opt/tomcat/log
+open catlina.out file and see any exceptions
