@@ -1,0 +1,29 @@
+//To create deployment//
+kubectl create -f deployment.yaml
+//To get deployment//
+kubectl get deployments
+//To update deployments//
+kubectl apply -f deployment.yaml
+kubectl set image deployment/myapp-deployment nginx=nginx:1.9.1
+//To see status of rollouts//
+kubectl rollout status deployment/myapp-deployment
+kubectl rollout history deployment/myapp-deployment
+//To rollback a deployment operation//
+kubectl rollout undo deployment/myapp-deployment
+
+# To see detailed info of deployment
+kubectl describe deployment
+# To delete deployment
+kubectl delete deployment myapp-deployment
+
+
+
+
+
+
+
+
+
+
+Reference:
+udemy: MM
